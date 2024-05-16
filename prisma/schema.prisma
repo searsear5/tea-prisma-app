@@ -8,12 +8,53 @@ datasource db {
 }
 
 model customer {
-  customer_id Int    @id @default(autoincrement())
-  username    String
-  userpass    String
-  name        String
-  lastname    String
-  email       String
-  address     String
-  phone       String
+  customer_id  Int            @id @default(autoincrement())
+  username     String
+  userpass     String
+  name         String
+  lastname     String
+  email        String
+  address      String
+  phone        String
+  carts        cart[]
+  orderHistory orderHistory[]
+}
+
+model tea {
+  tea_id      Int    @id @default(autoincrement())
+  teaname     String
+  description String
+  price       Int
+  image_url   String
+  type        String
+  carts       cart[]
+}
+
+model cart {
+  cartid     Int      @id @default(autoincrement())
+  customer   customer @relation(fields: [customerid], references: [customer_id])
+  customerid Int
+  tea        tea      @relation(fields: [teaid], references: [tea_id])
+  teaid      Int
+  quantity   Int
+  sumprice   Int
+}
+
+model orderHistory {
+  orderHistory_id Int        @id @default(autoincrement())
+  quantity        Int
+  customer        customer   @relation(fields: [customerid], references: [customer_id])
+  customerid      Int
+  teaOrder        teaOrder[]
+}
+
+model teaOrder {
+  order_id       Int          @id @default(autoincrement())
+  name           String
+  description    String
+  price          Int
+  image_url      String
+  type           String
+  orderHistory   orderHistory @relation(fields: [orderHistoryid], references: [orderHistory_id])
+  orderHistoryid Int
 }
