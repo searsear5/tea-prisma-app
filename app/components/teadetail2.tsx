@@ -46,7 +46,7 @@ function Teadetail2({ teadetail, price, id }: { teadetail: string, price: number
         const resdata: any = response.data
         console.log("resdata", resdata)
 
-        // สร้าง post ไป route history ส่ง quantity ไป
+
 
         router.push(`/cart`)
 

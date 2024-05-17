@@ -41,20 +41,13 @@ model cart {
 }
 
 model orderHistory {
-  orderHistory_id Int        @id @default(autoincrement())
+  orderHistory_id Int      @id @default(autoincrement())
   quantity        Int
-  customer        customer   @relation(fields: [customerid], references: [customer_id])
+  customer        customer @relation(fields: [customerid], references: [customer_id])
   customerid      Int
-  teaOrder        teaOrder[]
-}
-
-model teaOrder {
-  order_id       Int          @id @default(autoincrement())
-  name           String
-  description    String
-  price          Int
-  image_url      String
-  type           String
-  orderHistory   orderHistory @relation(fields: [orderHistoryid], references: [orderHistory_id])
-  orderHistoryid Int
+  teaname         String
+  description     String
+  price           Int
+  image_url       String
+  type            String
 }

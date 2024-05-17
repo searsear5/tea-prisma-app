@@ -39,3 +39,43 @@ export async function GET(
 
 
 }
+
+export async function POST(request: Request) {
+    const data = await getServerSession(authOption)
+    const useremail = data?.user?.email
+    if (useremail) {
+        const datauser = await prisma.customer.findFirst({
+            where: {
+
+                email: useremail
+            }
+        })
+        if (datauser?.customer_id) {
+
+
+
+            const { quantity, teaname, description, price, image_url, type } = await request.json()
+
+            const his = await prisma.orderHistory.create({
+                data: {
+                    quantity,
+                    customerid: datauser.customer_id,
+                    teaname,
+                    description,
+                    price,
+                    image_url,
+                    type,
+                }
+            })
+
+            console.log("newhis", his)
+            return Response.json(
+
+                his
+
+            )
+        }
+    }
+
+
+}
