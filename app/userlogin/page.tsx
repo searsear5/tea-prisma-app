@@ -8,7 +8,7 @@ import ProductListtea from "../components/productListtea";
 import ProductListpot from "../components/productListpot";
 import ProductListcub from "../components/productListcub";
 import { useRouter } from "next/navigation";
-export default function Home() {
+export default function Userlogin() {
 
     const { data: session, status } = useSession()
 
@@ -64,8 +64,8 @@ export default function Home() {
         <main>
             <Navbar />
             <div className="flex-col justify-center  min-h-[100vh] bg-cover bg-no-repeat ">
-                <h3>User page</h3>
-                <h1> {session?.user?.name}</h1>
+
+                {/*<h1> {session?.user?.name}</h1>*/}
                 <div className="flex justify-center my-5 p-3 text-2xl font-bold tracking-tight text-white bg-[#5F8244] py-8 ">TEA BAG</div>
                 <div className="flex justify-center"><ProductListtea teaproduct={data} /></div>
                 <div className="flex justify-center my-5 p-3 text-2xl font-bold tracking-tight text-white bg-[#5F8244] py-8">TEA POT</div>

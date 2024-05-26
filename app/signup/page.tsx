@@ -65,13 +65,13 @@ const SignupPage = () => {
                         </div>
                     )}
 
-                    <input onChange={(e) => setUsername(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='username' />
-                    <input onChange={(e) => setPassword(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="password" placeholder='password' />
-                    <input onChange={(e) => setName(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='name' />
-                    <input onChange={(e) => setLastname(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='lastname' />
-                    <input onChange={(e) => setEmail(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="email" placeholder='email' />
-                    <input onChange={(e) => setAddress(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='address' />
-                    <input onChange={(e) => setPhone(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='phone' />
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'>username :</div> <div> <input onChange={(e) => setUsername(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='username' /></div></div>
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'>password :</div><div> <input onChange={(e) => setPassword(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="password" placeholder='password' /></div></div>
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'> name :</div> <div><input onChange={(e) => setName(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='name' /></div></div>
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'>lastname :</div> <div><input onChange={(e) => setLastname(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='lastname' /></div></div>
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'>email :</div> <div><input onChange={(e) => setEmail(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="email" placeholder='email' /></div ></div>
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'>address :</div> <div><input onChange={(e) => setAddress(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='address' /></div ></div>
+                    <div className='flex items-center text-xl gap-x-5'><div className='px-10 w-64'>phone :</div> <div><input onChange={(e) => setPhone(e.target.value)} className='block bg-gray-200 p-2 my-2 rounded-md' type="text" placeholder='phone' /></div ></div>
                     <button type='submit' className='bg-blue-500 p-2 rounded-md text-white'>Sign up</button>
                 </form>
             </div>
