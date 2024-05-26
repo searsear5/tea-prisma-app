@@ -19,7 +19,9 @@ function Historyall({ data }: { data: his[] }) {
 
 
     return (
-        <div className="flex-col m-5 justify-between">{renderProduct}</div>
+        <div className="flex-col m-5 justify-between">
+            <h1 className="text-xl font-bold">Order History</h1>{renderProduct}
+        </div>
     )
 }
 

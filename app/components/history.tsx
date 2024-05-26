@@ -19,6 +19,7 @@ function Historyitem({ item }: { item: his }) {
     return (
         <div className="flex gap-5 py-5">
 
+
             <div className="max-w-m bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex justify-center gap-10">
                 <a href="#">
                     <img className="rounded-t-lg w-64" src={item.image_url} alt="pic tea" />
