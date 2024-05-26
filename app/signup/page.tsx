@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 const SignupPage = () => {
 
@@ -13,6 +14,7 @@ const SignupPage = () => {
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
     const [error, Seterror] = useState("")
+    const router = useRouter()
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,6 +42,8 @@ const SignupPage = () => {
                 Seterror("")
                 form.reset()
                 console.log('sign up success')
+                router.push('/userlogin')
+
 
             } else {
                 console.log('user sign up failed')
