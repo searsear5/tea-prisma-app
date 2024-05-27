@@ -1,9 +1,11 @@
+
+import { authOption } from "@/app/utils/authOption"
 import { PrismaClient } from "@prisma/client"
 import { create } from "domain"
 import { Session } from "inspector"
 import { getServerSession } from "next-auth"
 import { useSession } from "next-auth/react"
-import { authOption } from "../auth/[...nextauth]/route"
+
 
 const prisma = new PrismaClient()
 

@@ -1,7 +1,7 @@
 import Productshow from "./productshow"
 
 type teatype = {
-    // [x: string]: any
+
     description: string
     image_url: string
     price: number

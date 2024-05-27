@@ -1,90 +1,9 @@
-import NextAuth, { ISODateString, User } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
-import { PrismaClient } from "@prisma/client"
-import bcrypt from 'bcrypt'
-import { PrismaAdapter } from '@auth/prisma-adapter'
-
-import { JWT } from "next-auth/jwt"
-import nextAuth, { NextAuthOptions } from 'next-auth'
-import { Adapter, AdapterUser } from "next-auth/adapters"
+import { authOption } from "@/app/utils/authOption"
+import NextAuth from "next-auth/next"
 
 
-
-
-export interface DefaultSession {
-    user?: {
-        name?: string | null
-        email?: string | null
-        image?: string | null
-        id?: string | null
-    }
-    expires: ISODateString
-}
-
-interface Session {
-    user: {
-        /** The user's id */
-        id: string;
-    } & DefaultSession["user"];
-}
-
-
-
-const prisma = new PrismaClient()
-export const authOption: NextAuthOptions = {
-    providers: [
-        CredentialsProvider({
-
-            name: 'credentials',
-
-            credentials: {
-                username: { label: 'Username', type: 'text', placeholder: 'sear1234' },
-                password: { label: 'Password', type: 'password' },
-            },
-            async authorize(credentials: any, req): Promise<any> {
-                if (!credentials) { return null }
-
-                const user = await prisma.customer.findFirst({
-                    where: { username: credentials.username },
-                })
-
-                if (user && (await bcrypt.compare(credentials.password, user.userpass))
-                ) {
-                    console.log("log user", user)
-                    return user
-
-
-
-
-
-                } else {
-                    throw new Error('invalid email or password')
-                }
-
-            }
-
-
-
-        })
-
-    ],
-    adapter: PrismaAdapter(prisma) as Adapter,
-    session: {
-        strategy: 'jwt',
-    },
-    callbacks: {
-        session: async ({ session, token, user }) => {
-
-            return session;
-        },
-    },
-    secret: process.env.NEXTAUTH_SECRET,
-    pages: {
-        signIn: "/login"
-    }
-
-}
-
-const handler = NextAuth(authOption)
+const handler = NextAuth(authOption) as any
 
 export { handler as GET, handler as POST }
+
+//export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, authOption);
