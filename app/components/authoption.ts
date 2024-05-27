@@ -40,8 +40,7 @@ interface CustomSession extends Session { // Define custom session type
 
 
 const prisma = new PrismaClient()
-
-const authOption: NextAuthOptions = {
+export const authOption: NextAuthOptions = {
     providers: [
         CredentialsProvider({
 
@@ -80,8 +79,8 @@ const authOption: NextAuthOptions = {
     ],
     adapter: PrismaAdapter(prisma) as Adapter,
     session: {
-        strategy: 'jwt',
-        //jwt: true,
+        // strategy: 'jwt',
+        jwt: true,
     },
     callbacks: {
         session: async ({ session, token, user }: { session: CustomSession, token: any, user: any }) => {
@@ -95,9 +94,3 @@ const authOption: NextAuthOptions = {
     }
 
 } as any
-
-const handler = NextAuth(authOption)
-
-export { handler as GET, handler as POST, authOption }
-
-//export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, authOption);
