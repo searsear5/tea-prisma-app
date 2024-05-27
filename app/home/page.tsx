@@ -29,7 +29,7 @@ export default function Home() {
 
     const calldata = async (): Promise<any> => {
 
-        const response = await axios.get(`${process.env.BASE_URL_NEXTJS}/api/home`)
+        const response = await axios.get(`/api/home`)
         const datares: any = response.data.data
         console.log("response", datares)
 
