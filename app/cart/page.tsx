@@ -44,7 +44,7 @@ export default function Cart({ params }: { params: { id: string } }) {
 
         await check()
 
-        const rescart = await axios.get(`http://localhost:3000/api/cart`)
+        const rescart = await axios.get(`/api/cart`)
         const datacart: any = rescart.data.data
         console.log("rescart", datacart)
 

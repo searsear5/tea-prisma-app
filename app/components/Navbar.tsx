@@ -9,7 +9,7 @@ function Navbar() {
 
     /*const calldata = async (): Promise<any> => {
 
-        const response = await axios.get('http://localhost:3000/api/home')
+        const response = await axios.get('/api/home')
         const datares: any = response.data.data
         console.log("response", datares)
 

@@ -33,7 +33,7 @@ function Allitem({ allitem }: { allitem: cart[] }) {
 
     const buy = () => {
         const hisdata = allitem.map(async (item: cart) => {
-            const addhisdata = await axios.post(`http://localhost:3000/api/cart`, {
+            const addhisdata = await axios.post(`/api/cart`, {
                 quantity: item.quantity,
                 teaname: item.tea.teaname,
                 description: item.tea.description,
@@ -49,7 +49,7 @@ function Allitem({ allitem }: { allitem: cart[] }) {
 
 
 
-            const resdel = await axios.delete(`http://localhost:3000/api/cart/${item.cartid}`)
+            const resdel = await axios.delete(`/api/cart/${item.cartid}`)
             location.reload()
             console.log("add orderhistory", addhisdata)
 

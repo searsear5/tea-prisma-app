@@ -29,7 +29,7 @@ const LoginPage = () => {
                 return
             }
             console.log('login success')
-             router.replace("http://localhost:3000/home")*/
+             router.replace("/home")*/
         } catch (error) {
             console.log(error)
         }

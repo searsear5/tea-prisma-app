@@ -38,7 +38,7 @@ export default function history() {
 
         await check()
 
-        const response = await axios.get('http://localhost:3000/api/history')
+        const response = await axios.get('/api/history')
         const datares: any = response.data.data
         console.log("response", datares)
 

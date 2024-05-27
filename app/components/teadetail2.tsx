@@ -35,7 +35,7 @@ function Teadetail2({ teadetail, price, id }: { teadetail: string, price: number
         console.log("qty", qty)
         console.log("totla 2 ", total2)
 
-        const response = await axios.post(`http://localhost:3000/api/detail/${id}`, {
+        const response = await axios.post(`/api/detail/${id}`, {
             quantity: qty,
             sumprice: total2
         }, {

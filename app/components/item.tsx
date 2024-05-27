@@ -20,7 +20,7 @@ type cart = {
 function Item({ item }: { item: cart }) {
 
     const handlecancel = async (): Promise<any> => {
-        const resdel = await axios.delete(`http://localhost:3000/api/cart/${item.cartid}`)
+        const resdel = await axios.delete(`/api/cart/${item.cartid}`)
         location.reload()
     }
 
